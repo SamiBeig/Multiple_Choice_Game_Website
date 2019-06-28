@@ -1,14 +1,14 @@
 class Question{
 	//Setup
-	constructor(_prompt, _answer){
-		this.prompt = _prompt;
+	constructor(_quest, _answer){
+		this.quest = _quest;
 		this.answer = _answer;
 	}
 }
 
 //Array of question prompts. Note the types are strings, not questions since these are only the prompts
 var question_prompts = [
-	"What color is Ichigo's Bankai?\n(a) Black & White\n(b) Purple\n(c) Orange\n\n" , 
+	"What color is Ichigo's Bankai?\n(a) Black & White\n(b) Purple\n(c) Orange\n(d) Pink\n\n" , 
 	"From whom does Luffy get his straw hat from?\n(a) Gold Roger\n(b) Zoro\n(c) Ace\n(d) Law\n\n",
 	"What is the name of Killua's father?\n(a) Silva\n(b) Zeno\n(c) Kikyo\n(d) Milluki\n\n",
 	"What is the second Pokemon that Ash Ketchum caught in Sinnoh?\n(a) Turtwig\n(b) Starly\n(c) Chimchar\n(d) Buizel\n\n",
@@ -23,34 +23,45 @@ var question_prompts = [
 
 //Another array named questions, which provides the question prompts from the array created above, as well as answers.
 var questions = [
-	Question(question_prompts[0], "a"),
-	Question(question_prompts[1], "a"),
-	Question(question_prompts[2], "a"),
-	Question(question_prompts[3], "a"),
-	Question(question_prompts[4], "c").
-	Question(question_prompts[5], "c").
-	Question(question_prompts[6], "c"),
-	Question(question_prompts[7], "b"),
-	Question(question_prompts[8], "d"),
-	Question(question_prompts[9], "a"),
+	new Question(question_prompts[0], "a"),
+	new Question(question_prompts[1], "a"),
+	new Question(question_prompts[2], "a"),
+	new Question(question_prompts[3], "a"),
+	new Question(question_prompts[4], "c"),
+	new Question(question_prompts[5], "c"),
+	new Question(question_prompts[6], "c"),
+	new Question(question_prompts[7], "b"),
+	new Question(question_prompts[8], "d"),
+	new Question(question_prompts[9], "a"),
 ];
 
-function run_test(questions){
-	//keep track of score
-	var score = 0;
-	//for loop that runs until number of questions run out
-	for(int i = 0; i < questions.size(); i++)
-		//prompts the user to answer the question and stores it in the variable named answer
-		var answer = window.prompt(question_prompts[i]);
-		//if the answer is correct, score gets incremented by 1
-		if(answer == question.answer){
-			score += 1;
-		}	
+var score = 0;
+var count = 0;
+var answer;
+
+function run_test(){
 	//prints out final score 
-	console.log("You got " + str(score) + "/" + questions.length() + " correct!" )
+	if(count == questions.length){
+		alert("You got " + score + "/" + questions.length + " correct!" );
+		return;
+	}
+	//prompts the user to answer the question and stores it in the variable named answer
+	answer = questions[count].answer;
+	console.log(answer);
+		
+	//splitting string for easy access
+	var splitted = questions[count].quest.split("\n");
+	
+	//populating gui
+	document.getElementById("question").innerHTML = splitted[0];
+	document.getElementById("choice1").innerHTML = splitted[1];
+	document.getElementById("choice2").innerHTML = splitted[2];
+	document.getElementById("choice3").innerHTML = splitted[3];
+	document.getElementById("choice4").innerHTML = splitted[4];
 
 }
 
-run_test(questions);
+run_test();
+
 
 
