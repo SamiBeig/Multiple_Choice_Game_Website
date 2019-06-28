@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+.cent {
+  text-align: center;
+  font-family: Arial;
+}
+
+button {
+  color: white;
+  background-color: blue;
+  border: none;
+  border-radius: 15px;
+  padding: 30px 64px;
+  text-decoration: none;
+  margin: 5rem;
+  margin-bottom: 0;
+}
+
+button:focus {
+  background-color: green;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="cent">
+  <h1>The Greatest Quiz in the World That Makes You Gei if You Fail</h1>
+  <h3 id="question"></h3>
+  <div>
+    <button id="choice1" onclick="check('choice1')"></button>
+    <button id="choice2" onclick="check('choice2')"></button>
+  </div>
+  <div>
+	<button id="choice3" onclick="check('choice3')"></button>
+	<button id="choice4" onclick="check('choice4')"></button>
+  </div>
+</div>
+
+<script src="Multiple_Choice_Game.js"></script>
+<script>
+function check(str) {
+	var choice = document.getElementById(str).innerHTML;
+	if(choice.substring(1,2) == answer)
+		score++;
+	count++;
+	run_test();
+}
+</script>
+
+</body>
+
+</html>
